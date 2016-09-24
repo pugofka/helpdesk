@@ -18,6 +18,8 @@ class CreateCredentionalsTable extends Migration
             $table->integer('project_id');
             $table->text('credentional');
             $table->timestamps();
+            $table->softDeletes();
+            $table->engine = 'InnoDB';
         });
     }
 

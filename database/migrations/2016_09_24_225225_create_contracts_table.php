@@ -22,6 +22,8 @@ class CreateContractsTable extends Migration
             $table->integer('sla_id')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
+            $table->softDeletes();
+            $table->engine = 'InnoDB';
 
         });
     }

@@ -20,6 +20,8 @@ class CreateSlaTable extends Migration
             $table->boolean('work_holydays')->default(false);
             $table->text('comment');
             $table->timestamps();
+            $table->softDeletes();
+            $table->engine = 'InnoDB';
         });
     }
 

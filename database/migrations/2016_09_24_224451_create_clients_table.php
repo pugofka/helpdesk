@@ -21,6 +21,8 @@ class CreateClientsTable extends Migration
             $table->string('email')->nullable();
             $table->string('logo')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+            $table->engine = 'InnoDB';
         });
     }
 

@@ -25,6 +25,8 @@ class CreateProjectsTable extends Migration
             $table->enum('show', ['time', 'money', 'nothing', 'all'])->default('money');
             $table->boolean('active')->default(1);
             $table->timestamps();
+            $table->softDeletes();
+            $table->engine = 'InnoDB';
 
         });
     }

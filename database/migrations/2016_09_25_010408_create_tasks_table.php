@@ -26,6 +26,8 @@ class CreateTasksTable extends Migration
             $table->time('task_time')->default(0);
             $table->boolean('billable')->default(1);
             $table->timestamps();
+            $table->softDeletes();
+            $table->engine = 'InnoDB';
         });
     }
 
