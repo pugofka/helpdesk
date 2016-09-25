@@ -17,9 +17,9 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->integer('contract_id');
             $table->string('name');
-            $table->string('url_production');
-            $table->string('url_dev');
-            $table->text('description');
+            $table->string('url_production')->nullable();
+            $table->string('url_dev')->nullable();
+            $table->text('description')->nullable();
             $table->integer('payed_hours')->default(0);
             $table->integer('cost')->default(0);
             $table->enum('show', ['time', 'money', 'nothing', 'all'])->default('money');
