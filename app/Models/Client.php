@@ -29,4 +29,10 @@ class Client extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+
+    public function contracts()
+    {
+        return $this->hasMany('App\Models\Contract', 'client_id');
+    }
 }

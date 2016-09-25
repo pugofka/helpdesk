@@ -29,4 +29,9 @@ class Sla extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function contracts()
+    {
+        return $this->belongsTo('App\Models\Contract', 'sla_id');
+    }
 }

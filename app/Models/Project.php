@@ -29,4 +29,14 @@ class Project extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function credentional()
+    {
+        return $this->hasOne('App\Models\Credentional', 'project_id');
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\Task', 'project_id');
+    }
 }

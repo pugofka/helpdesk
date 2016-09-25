@@ -29,4 +29,15 @@ class Contract extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+
+    public function clients()
+    {
+        return $this->belongsTo('App\Models\Client', 'client_id');
+    }
+
+    public function sla()
+    {
+        return $this->hasMany('App\Models\Sla', 'sla_id');
+    }
 }

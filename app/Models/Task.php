@@ -29,4 +29,25 @@ class Task extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function project()
+    {
+        return $this->belongsTo('App\Models\Project');
+    }
+
+    public function responsible()
+    {
+        return $this->belongsTo('App\Models\User', 'responsible_person');
+    }
+
+    public function uploads()
+    {
+        return $this->hasMany('App\Models\Upload');
+    }
 }

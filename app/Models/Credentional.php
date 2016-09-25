@@ -29,4 +29,9 @@ class Credentional extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function project()
+    {
+        return $this->hasOne('App\Models\Project', 'project_id');
+    }
 }
