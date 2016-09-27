@@ -22,6 +22,8 @@ class Client extends Model
      */
     protected $fillable = ['name', 'full_name', 'phone', 'email', 'logo'];
 
+    protected $hidden = ['created_at', 'deleted_at', 'updated_at'];
+
 
     /**
      * The attributes that should be mutated to dates.
