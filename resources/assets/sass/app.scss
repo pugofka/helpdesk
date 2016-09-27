@@ -7,6 +7,13 @@
 // Bootstrap
 @import "node_modules/bootstrap/scss/bootstrap";
 
-// Example Dashboard
-//@import "dashboard";
+// Rewrite
+@import "globals";
+@import "buttons";
+@import "content_menu";
 @import "nav_sidebar";
+@import "popup";
+@import "messages";
+
+// Pages
+@import "pages";

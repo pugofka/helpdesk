@@ -1,0 +1,103 @@
+// Pop Up Form
+.popup-form{
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  width: 400px;
+  max-width: 400px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(50,50,50,.4);
+  -webkit-box-shadow: 0 2px 10px rgba(50,50,50,.4);
+  -moz-box-shadow: 0 2px 10px rgba(50,50,50,.4);
+  display: none;
+}
+.popup-form header{
+  padding: 10px;
+  background: $color-primary-dark;
+  color: #fff;
+}
+.popup-form header p{
+  margin-bottom: 0;
+}
+.popup-form header .actions i{
+  color: #fff;
+  transition-duration: .2s;
+  opacity: .8;
+}
+.popup-form header .actions i:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.popup-form header .actions i:nth-child(1){
+  margin-right: 10px;
+}
+.popup-form.minimized{
+  transition-duration: .3s;
+  height: 40px !important;
+}
+.popup-form section{
+  padding: 10px;
+  padding-bottom: 60px;
+}
+.popup-form footer{
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  background-color: #f2f4f3;
+}
+.popup-form.minimized footer{
+  position: static;
+}
+.popup-form .form-control{
+  margin-bottom: 10px;
+}
+.popup-form.new-task,
+.popup-form.update-task{
+  height: 450px;
+}
+
+// SHEET AND PROMPT
+#sheet{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: $color-primary-dark;
+  opacity: .9;
+  display: none;
+}
+
+#pop-up-prompt{
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  width: 100%;
+  min-height: 400px;
+  margin: 0 auto;
+  color: #fff;
+  display: none;
+  text-align: center;
+}
+#pop-up-prompt h4{
+  margin-top: 30px;
+}
+#pop-up-prompt section{
+  margin-top: 40px;
+}
+#pop-up-prompt section .btn{
+  display: block;
+  border-top: 1px solid rgba(250,250,250,.2);
+  border-radius: 0;
+  color: rgba(250,250,250,.2);
+}
+#pop-up-prompt section .btn:last-child{
+  border-bottom: 1px solid rgba(250,250,250,.2);
+}
+#pop-up-prompt section .btn:hover{
+  color: #fff;
+  background-color: rgba(250,250,250,.1);
+}

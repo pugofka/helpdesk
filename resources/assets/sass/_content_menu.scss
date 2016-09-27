@@ -1,0 +1,115 @@
+// ContentMenu
+.content-menu .links{
+  float: left;
+  width: 30%;
+  position: relative;
+  left: 1px;
+}
+.content-menu .links a{
+  display: block;
+  padding: 15px;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #999c9b;
+  border-left: 4px solid transparent;
+}
+.content-menu .links a.active,
+.content-menu .links a:hover,
+.content-menu .links a:first-child{
+  border-left-color: $color-primary-light;
+  color: $color-default-text;
+}
+.content-menu .links a.active,
+.content-menu .links a:first-child{
+  //border-top: 1px solid #cdcdd4;
+  border-bottom: 1px solid #cdcdd4;
+  //font-weight: bold;
+  background-color: #fff;
+}
+.content-menu .links a.inactive{
+  border-top: none;
+  border-bottom: none;
+  border-left: 4px solid transparent;
+  color: #999c9b;
+  font-weight: normal;
+  background-color: transparent;
+}
+.content-menu .links a.inactive:hover{
+  border-left-color: $color-primary-light;
+  color: $color-default-text;
+}
+.content-menu .content{
+  float: left;
+  width: 70%;
+  padding: 10px;
+  background-color: #fff;
+  min-height: 500px;
+}
+.content-menu .content .item{
+  display: none;
+}
+.content-menu .content .item:first-child{
+  display: block;
+}
+.content-menu .content header{
+  line-height: .8;
+}
+.content-menu .content header h2{
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  transition-duration: .2s;
+  line-height: 2;
+}
+.content-menu .content header i{
+  color: #333;
+}
+.content-menu .content header i:hover{
+  opacity: .9;
+  cursor: pointer;
+}
+.content-menu .content header p{
+  font-style: italic;
+}
+.content-menu .content header .client-update-form{
+  display: none;
+}
+.content-menu .content header .client-update-form input{
+  border: 1px solid rgba(50,50,50,.2);
+  padding: 21px 10px;
+  background-color: transparent;
+  color: #fff;
+  margin-top: 5px;
+}
+.content-menu .content header .client-update-form input:focus{
+  border-color: #fff;
+}
+.content-menu .content .panel{
+  margin-top: 10px;
+  box-shadow: none;
+  border: none;
+}
+.content-menu.content-menu-tab .links{
+  float: none;
+  width: auto;
+  min-height: 56px;
+  position: relative;
+  z-index: 2;
+}
+.content-menu.content-menu-tab .links a{
+  float: left;
+  border-left: 1px solid transparent;
+  border-bottom: none;
+}
+.content-menu .links a.inactive:hover{
+  border-left-color: transparent;
+}
+.content-menu.content-menu-tab .content{
+  float: none;
+  width: auto;
+  position: relative;
+  top: -3px;
+  left: 1px;
+  z-index: 1;
+  background-color: #fff;
+}

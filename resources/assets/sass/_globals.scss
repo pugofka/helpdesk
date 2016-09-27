@@ -1,0 +1,50 @@
+// GLOBALS
+html,body{
+  font-family: 'Open Sans', sans-serif;;
+  font-size: 14px;
+  height: 100%;
+  color: $color-default-text;
+  background-color: $background-color;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Open Sans light', sans-serif;
+  font-weight: 300;
+}
+
+a{
+  color: $color-primary-light
+}
+a:hover{
+  text-decoration: none;
+  color: $color-primary-dark;
+}
+
+// Inputs
+input.form-control{
+  padding: 10px 12px;
+  height: auto;
+}
+input.form-control:focus,
+textarea.form-control:focus{
+  box-shadow: none;
+  border-color: $color-primary-light;
+}
+
+img{
+  max-width: 100%;
+}
+
+.label-default{
+  font-size: 1em;
+}
+
+// Helpers
+.color-primary{color: $color-primary-light}
+.color-badge{color: $color-badge}
+
+.no-padding-left{padding-left: 0}
+.no-padding-right{padding-right: 0}
+.no-side-padding{padding-left: 0; padding-right: 0}
+
+.show-on-hover{display: none}
