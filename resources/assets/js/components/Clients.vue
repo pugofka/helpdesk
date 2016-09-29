@@ -48,7 +48,7 @@
                         <br>
                         <div class="clearfix"></div>
                         <hr><br><br>
-                        <span @click="deleteClient(client)" class="btn btn-danger pull-right">Delete {{ client.name }}</span>
+                        <span @click="deleteClient(client, $index)" class="btn btn-danger pull-right">Delete {{ client.name }}</span>
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -76,12 +76,12 @@
             return {
                 clients: [],
                 client: null,
-//                currentClient: null,
-//                newProjectClientId: {name: null, project_id: null},
-//                newProject: {name: null, project_id: null},
-//                tempClientIndex: null,
-//                lastRequest: false,
-//                msg: {success: null, error: null}
+                currentClient: null,
+                newProjectClientId: {name: null, project_id: null},
+                newProject: {name: null, project_id: null},
+                tempClientIndex: null,
+                lastRequest: false,
+                msg: {success: null, error: null}
             };
         },
 
@@ -103,8 +103,23 @@
             },
 
             deleteClient(client) {
-                this.clients.$remove(client);
-                this.$http.delete('clients/'+client.id);
+                this.$http.delete('clients/'+client.id).then((response) => {
+
+                    // get status
+                   if (response.status == 200) {
+                       this.clients.$remove(client);
+                       $(".content-menu .links a").removeClass("active").addClass("inactive");
+                       $(".content-menu .links a:first-child").removeClass("inactive").addClass("active");
+                       $(".content-menu .content .item").hide();
+
+                       $(".content-menu .content div:first-child").show()
+                   }
+
+                }, (response) => {
+                    // error callback
+                    console.log('error delete client' + client);
+                });
+
             }
         }
     }
