@@ -30,3 +30,11 @@ $factory->define(App\Models\Client::class, function (Faker\Generator $faker) {
         'email' => $faker->email,
     ];
 });
+
+$factory->define(App\Models\Contract::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->randomNumber,
+        'date' => $faker->date,
+        'comment' => $faker->text,
+    ];
+});

@@ -13,6 +13,7 @@
 
 <script>
     export default {
+
         data () { /* ES2015 эквивалент для: `data: function () {` */
             return {
                 message: 'Hello Hsd!'

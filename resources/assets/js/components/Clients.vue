@@ -1,4 +1,5 @@
 <template>
+
 <div v-if="clients.length != 0">
     <div class="row" >
         <div class="col-xs-12">
@@ -13,30 +14,32 @@
                     <div v-for="client in clients" class="item" id="client_{{client.id}}" title="Edit client">
                         <header>
                             <div class="client client-info-{{$index}} page-title-section">
-                                <h2 class="pull-left">{{client.name}} <a v-on:click="startClientEditMode($index)" class="show-on-hover btn btn-default" title="Edit Client"><i class="ion-edit"></i></a></h2>
+                                <h2 class="pull-left">{{client.name}} <a @click="startClientEditMode($index)" class="show-on-hover btn btn-default" title="Edit Client"><i class="ion-edit"></i></a></h2>
                                 <div class="clearfix"></div>
                             </div>
                             <div>
-                                <p><label>Contact name: </label> {{client.point_of_contact}}</p>
-                                <p><label>Contact number: </label> {{client.phone_number}}</p>
-                                <p><label>Contact email: </label> <a href="mailto:{{client.email}}">{{client.email}}</a></p>
+                                <p><label>Полное название компании: </label> {{client.full_name}}</p>
+                                <p><label>Телефон: </label> {{client.phone}}</p>
+                                <p><label>Email: </label> <a href="mailto:{{client.email}}">{{client.email}}</a></p>
                             </div>
                         </header>
                         <hr>
-                        <span v-on:click="showNewProjectForm(client.id, $index)" title="Create new project" class="btn btn-default pull-right">New Project</span>
+                        <span @click="showNewProjectForm(client.id, $index)" title="Create new project" class="btn btn-default pull-right">Новый договор</span>
 
-                            <h4>Projects</h4>
+                            <h4>Договоры</h4>
                             <table class="table">
                                 <thead>
                                 <tr>
                                     <td>#</td>
-                                    <td>Name</td>
+                                    <td>Номер договора</td>
+                                    <td>Дата договора</td>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="project in client.projects">
-                                    <td>$index + 1 </td>
-                                    <td><a href="">project.name </a></td>
+                                <tr v-for="contract in client.contracts">
+                                    <td>{{ $index + 1}} </td>
+                                    <td><a href="">{{ contract.name}}</a></td>
+                                    <td>{{ contract.date}}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -45,7 +48,7 @@
                         <br>
                         <div class="clearfix"></div>
                         <hr><br><br>
-                        <span v-on:click="deleteClient(client, $index)" class="btn btn-danger pull-right">Delete {{ client.name }}</span>
+                        <span @click="deleteClient(client)" class="btn btn-danger pull-right">Delete {{ client.name }}</span>
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -60,7 +63,7 @@
     <div class="clearfix"></div>
     <p class="alert alert-warning">
         Your clients will be listed here once you create some.
-        Create a new client <a v-on:click="showCreateForm()">now</a>.
+        Create a new client <a @click="showCreateForm()">now</a>.
     </p>
 </div>
 
@@ -99,7 +102,7 @@
                 });
             },
 
-            delete(client) {
+            deleteClient(client) {
                 this.clients.$remove(client);
                 this.$http.delete('clients/'+client.id);
             }

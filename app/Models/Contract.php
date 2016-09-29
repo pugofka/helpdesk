@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class Contract extends Model
 {
@@ -22,6 +23,7 @@ class Contract extends Model
      */
     protected $fillable = ['name', 'date', 'comment', 'client_id', 'sla_id', 'active'];
 
+    protected $hidden = ['created_at', 'deleted_at', 'updated_at'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -39,5 +41,12 @@ class Contract extends Model
     public function sla()
     {
         return $this->hasMany('App\Models\Sla', 'sla_id');
+    }
+
+    // Accessor for format date
+    public function getDateAttribute($value)
+    {
+        setlocale(LC_ALL, 'ru_RU.UTF-8');
+        return Carbon::parse($value)->formatLocalized('%d %B %Y');
     }
 }

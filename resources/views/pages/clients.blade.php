@@ -1,20 +1,19 @@
 @extends('layouts.cabinet')
 
 @section('content')
-<h1 class="page-header">Clients</h1>
 
 
 
 <div id="client">
     <div class="row">
         <div class="col-xs-12 page-title-section">
-            <h1 class="pull-left">Clients</h1>
-            <a class="btn btn-primary pull-right" title="Create new client">+ New Client</a>
+            <h1 class="pull-left">Клиенты</h1>
+            <a class="btn btn-primary pull-right" title="Create new client">+ Добавить клиента</a>
             <div class="clearfix"></div>
         </div>
     </div>
 
-    <clients></clients>
+    <clients ></clients>
 
     {{--
 --}}

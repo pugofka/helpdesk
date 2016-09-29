@@ -13,7 +13,10 @@ class ClientSeeder extends Seeder
     public function run()
     {
         DB::table('clients')->truncate();
-        factory(App\Models\Client::class, 5)->create();
+        DB::table('contracts')->truncate();
+        factory(App\Models\Client::class, 5)->create()->each(function($u) {
+            $u->contracts()->save(factory(App\Models\Contract::class)->make());
+        });
     }
 
 }

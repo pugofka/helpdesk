@@ -18,8 +18,7 @@ class ClientController extends UserController
      */
     public function index()
     {
-        $clients = Client::latest()->get();
-        return view('pages.clients', compact('clients'));
+        return view('pages.clients');
     }
 
 
