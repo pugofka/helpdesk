@@ -5,15 +5,10 @@
 
 
 <div id="client">
-    <div class="row">
-        <div class="col-xs-12 page-title-section">
-            <h1 class="pull-left">Клиенты</h1>
-            <a class="btn btn-primary pull-right" title="Create new client">+ Добавить клиента</a>
-            <div class="clearfix"></div>
-        </div>
-    </div>
+
 
     <clients ></clients>
+
 
     {{--
 --}}

@@ -22,6 +22,7 @@ $.ajaxSetup({
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('clients', require('./components/Clients.vue'));
+// Vue.component('client-create', require('./components/ClientCreate.vue'));
 
 import Vue from 'vue'
 

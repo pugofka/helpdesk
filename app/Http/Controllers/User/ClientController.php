@@ -51,7 +51,7 @@ class ClientController extends UserController
      */
     public function store(Request $request)
     {
-        //
+        return response()->json(['message' => 'error'], 422);
     }
 
     /**
