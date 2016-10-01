@@ -172,7 +172,7 @@
 
                     // get status
                     if (response.status == 200) {
-                        this.msg.sucess = response.body.message;
+                        this.msg.success = response.body.message;
                         this.clients.$remove(client);
                         new_client.name = null;
                         new_client.full_name = null;

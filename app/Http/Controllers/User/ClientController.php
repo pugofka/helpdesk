@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 
 use App\Http\Requests;
 
@@ -51,7 +52,24 @@ class ClientController extends UserController
      */
     public function store(Request $request)
     {
-        return response()->json(['message' => 'error'], 422);
+        $validator = Validator::make($request->all(), [
+            'new_client.name' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            // todo use $validator->errors()->all()
+            return response()->json(['message' => 'validation error'], 422);
+        }
+        $client = $request->input('new_client');
+        $new_client = Client::create([
+           'name'       => $client['name'],
+           'full_name'  => $client['full_name'],
+           'phone'      => $client['phone'],
+           'email'      => $client['email'],
+
+        ]);
+
+        return response()->json(['message' => 'success', 'new_client' => $new_client], 200);
     }
 
     /**
