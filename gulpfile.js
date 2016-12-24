@@ -1,6 +1,6 @@
 const elixir = require('laravel-elixir');
 
-require('laravel-elixir-vue');
+require('laravel-elixir-vue-2');
 
 /*
  |--------------------------------------------------------------------------
@@ -9,16 +9,38 @@ require('laravel-elixir-vue');
  |
  | Elixir provides a clean, fluent API for defining some basic Gulp tasks
  | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
+ | file for your application as well as publishing vendor resources.
  |
  */
 
+var path = {
+    js: {
+        src: 'resources/assets/js',
+        vendor: 'resources/assets/js/vendor',
+        build: 'public/js'
+    },
+    img: {
+        src: 'resources/assets/img',
+        build: 'public/img'
+    },
+    css: {
+        src: 'resources/assets/css',
+        vendor: 'resources/assets/css/vendor',
+        build: 'public/css'
+    },
+    npm: 'node_modules/'
+};
 
-elixir(function(mix) {
+
+elixir((mix) => {
+    // Styles
     mix.sass('app.scss')
-        // .scripts([
-        //     './vendor/bower_components/jquery/dist/jquery.js',
-        //     './vendor/bower_components/bootstrap/dist/jquery.js'
-        // ])
-        .webpack('app.js');
+        .styles('vendor/*.css', path.css.build+'/scripts.css');
+
+    // Scripts
+    mix.webpack('app.js')
+        .scripts('vendor/*.js', path.js.build+'/scripts.js');
+
+    // Images
+    mix.copy(path.img.src, path.img.build);
 });

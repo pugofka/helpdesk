@@ -7,6 +7,14 @@
 
 require('./bootstrap');
 
+require('../../../node_modules/bootstrap-material-design/dist/js/material');
+require('../../../node_modules/bootstrap-material-design/dist/js/ripples');
+
+// Material init
+$.material.init()
+
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the body of the page. From here, you may begin adding components to
@@ -64,8 +72,3 @@ const app = new Vue({
         }
     }
 });
-
-
-
-
-
