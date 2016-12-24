@@ -30,7 +30,28 @@
                 @include('partials.nav')
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                @yield('content')
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" name="search" placeholder="Поиск"></input>
+                    </div>
+                    <div class="col-md-4">
+                        Добавить задачу
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#">{{ Auth::user()->name }}</a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >
+                            <i class="icon ion-android-exit"></i> Выход
+                        </a>
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    @yield('content')
+                </div>
             </div>
         </div>
     </div>
